@@ -15,7 +15,7 @@
             blueCodeNum:""
           }
       },
-      created:function(){
+      beforeMount:function(){
           this.dealLotteryCode();
       },
       filters:{
@@ -53,7 +53,6 @@
   .dcb-number-container{
     display: flex;
     flex-wrap: nowrap;
-    margin-top: 20px;
   }
   .ball-blue-div{
     height: 30px;

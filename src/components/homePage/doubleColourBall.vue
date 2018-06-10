@@ -16,6 +16,17 @@
           <lottery-code lotteryCode="1#4#6#14#28#33_1"></lottery-code>
         </div>
       </div>
+      <div class="last-buy-together-div">
+        <div class="last-buy-together-text-div">上期合买情况：</div>
+        <div class="last-time-desc-div">
+          <!--<lottery-code lotteryCode="1#4#6#14#28#33_1"></lottery-code>-->
+          <!--<lottery-code lotteryCode="3#6#8#24#28#33_1"></lottery-code>-->
+          <!--<lottery-code lotteryCode="1#8#12#18#28#33_3"></lottery-code>-->
+          <div>总合买金额：<span>{{lastAllBuyMoney}}</span> 元</div>
+          <div>总共中奖金额：<span>{{moneyAllWin}}</span> 元</div>
+          <div class="">总共参与人数: <span>{{peopleAllNum}}</span> 人</div>
+        </div>
+      </div>
     </div>
 </template>
 
@@ -33,7 +44,10 @@
       data(){
           return{
             nextTimeNum:18071169,
-            lastTimeNum:18071168
+            lastTimeNum:18071168,
+            lastAllBuyMoney:"100",
+            peopleAllNum:25,
+            moneyAllWin:123700
           }
       }
     }
@@ -67,14 +81,32 @@
     margin: 10px;
   }
   .last-time-code{
-    margin-left: 20px;
+    margin-left: 30px;
     margin-top: 10px;
     border-left: 1px dashed #999999;
     height: 80px;
-    padding-left: 20px;
+    padding-left: 30px;
   }
   .dcb-last-time-text{
     color: #999999;
     font-size: 14px;
+    margin-bottom: 20px;
+  }
+  .last-time-desc-div{
+    color: #999999;
+    font-size: 14px;
+  }
+  .last-buy-together-div{
+    color: #999999;
+    margin-left: 30px;
+    border-left: 1px dashed #999999;
+    padding-left: 30px;
+    height: 90px;
+  }
+  .last-buy-together-div span{
+    color: #cd181f;
+  }
+  .last-buy-together-text-div{
+    margin-bottom: 10px;
   }
 </style>
