@@ -26,12 +26,26 @@
           }
       },
       watch:{
-        red1(value,oldValue) {
-          if(/\D/.test(this.value)){
-            this.red1 = value;
-          }else{
-            this.red1 = oldValue
-          }
+        red1:function(value,oldValue) {
+          this.red1 = this.checkBallNum(value,oldValue,"red");
+        },
+        red2:function(value,oldValue) {
+          this.red2 = this.checkBallNum(value,oldValue,"red");
+        },
+        red3:function(value,oldValue) {
+          this.red3 = this.checkBallNum(value,oldValue,"red");
+        },
+        red4:function(value,oldValue) {
+          this.red4 = this.checkBallNum(value,oldValue,"red");
+        },
+        red5:function(value,oldValue) {
+          this.red5 = this.checkBallNum(value,oldValue,"red");
+        },
+        red6:function(value,oldValue) {
+          this.red6 = this.checkBallNum(value,oldValue,"red");
+        },
+        blue1:function(value,oldValue) {
+          this.blue1 = this.checkBallNum(value,oldValue,"blue");
         }
 
       },
@@ -56,16 +70,53 @@
             if(this.red6 != ""){
               numberArray.push(this.deleteZero(this.red6));
             }
+
+            /*前6位从小到大排序*/
+            numberArray.sort(function (a,b) {
+              return a-b;
+            });
+
             if(this.blue1 != ""){
               numberArray.push(this.deleteZero(this.blue1));
             }
+
             this.$emit('addNum',numberArray);
+
+            this.red1 = "";
+            this.red2 = "";
+            this.red3 = "";
+            this.red4 = "";
+            this.red5 = "";
+            this.red6 = "";
+            this.blue1 = "";
+
           },
           deleteZero:function (value) {
             if(value[0] == "0"){
               return value.substr(1);
             }else{
               return value;
+            }
+          },
+          checkBallNum:function (newValue,oldValue,type) {
+            if(!(/\D/.test(newValue))){
+              if(type == "red"){
+                if(newValue <=33 && newValue >= 1 || newValue==""){
+                  return newValue;
+                }else{
+                  alert("红球选择区间是1-33");
+                  return "";
+                }
+              }else if(type == "blue"){
+                if(newValue <=16 && newValue >= 1 || newValue==""){
+                  return newValue;
+                }else{
+                  alert("篮球选择区间是1-16");
+                  return "";
+                }
+              }
+            }else{
+              return ""
             }
           }
       },
