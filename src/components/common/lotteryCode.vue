@@ -15,7 +15,15 @@
             blueCodeNum:""
           }
       },
-      beforeMount:function(){
+      methods:{
+        dealLotteryCode:function () {
+          var redBlue = this.lotteryCode.split("_");
+
+          this.redCodeNum = redBlue[0].split("#");
+          this.blueCodeNum = redBlue[1];
+        }
+      },
+      created:function(){
           this.dealLotteryCode();
       },
       filters:{
@@ -25,14 +33,6 @@
             }else{
               return value;
             }
-          }
-      },
-      computed:{
-          dealLotteryCode:function () {
-            var redBlue = this.lotteryCode.split("_");
-
-            this.redCodeNum = redBlue[0].split("#");
-            this.blueCodeNum = redBlue[1];
           }
       }
     }

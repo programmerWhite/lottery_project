@@ -1,12 +1,12 @@
 <template>
   <div class="lottery-line-div">
-    <input type="text" class="red-ball-input" maxlength="2" :value="red1"/>
-    <input type="text" class="red-ball-input" maxlength="2" :value="red2"/>
-    <input type="text" class="red-ball-input" maxlength="2" :value="red3"/>
-    <input type="text" class="red-ball-input" maxlength="2" :value="red4"/>
-    <input type="text" class="red-ball-input" maxlength="2" :value="red5"/>
-    <input type="text" class="red-ball-input" maxlength="2" :value="red6"/>
-    <input type="text" class="blue-ball-input" maxlength="2" :value="blue1"/>
+    <input type="text" class="red-ball-input" maxlength="2" v-model="red1"/>
+    <input type="text" class="red-ball-input" maxlength="2" v-model="red2"/>
+    <input type="text" class="red-ball-input" maxlength="2" v-model="red3"/>
+    <input type="text" class="red-ball-input" maxlength="2" v-model="red4"/>
+    <input type="text" class="red-ball-input" maxlength="2" v-model="red5"/>
+    <input type="text" class="red-ball-input" maxlength="2" v-model="red6"/>
+    <input type="text" class="blue-ball-input" maxlength="2" v-model="blue1"/>
     <div class="add-new-line-button" @click="addNewNum">添加</div>
   </div>
 </template>
@@ -25,12 +25,19 @@
             blue1:"",
           }
       },
+      watch:{
+        red1(value,oldValue) {
+          if(/\D/.test(this.value)){
+            this.red1 = value;
+          }else{
+            this.red1 = oldValue
+          }
+        }
+
+      },
       methods:{
           addNewNum:function () {
             var numberArray = [];
-            console.log(this.red1)
-
-            console.log(this.red2)
             if(this.red1 != ""){
               numberArray.push(this.deleteZero(this.red1));
             }
@@ -52,18 +59,16 @@
             if(this.blue1 != ""){
               numberArray.push(this.deleteZero(this.blue1));
             }
-            console.log(numberArray)
-            this.$emit('addNumber',numberArray);
+            this.$emit('addNum',numberArray);
           },
           deleteZero:function (value) {
-            console.log(value)
             if(value[0] == "0"){
               return value.substr(1);
             }else{
               return value;
             }
           }
-      }
+      },
     }
 </script>
 

@@ -5,7 +5,7 @@
         <div class="had-number-div">
           <div class="had-number-line-div" v-for="(number,index) in hadAddNum">
             <lottery-code  :lotteryCode="number" @addNumber="addNumber"></lottery-code>
-            <div class="delete-line" :indexNum="index">X</div>
+            <div class="delete-line" :indexNum="index" @click="deleteArrayNum">X</div>
           </div>
         </div>
         <div class="ideal-number-control-div">
@@ -24,12 +24,29 @@
       components:{addLottery,lotteryCode},
       data(){
           return{
-            hadAddNum:["1#4#6#14#25#23_5"]
+            hadAddNum:[]
           }
       },
       methods:{
           addNumber:function (numberArray) {
-            console.log(numberArray)
+            var tempNum = [];
+
+            for(var i=0;i<numberArray.length-1;i++){
+              if(tempNum.indexOf(numberArray[i]) == -1){
+                tempNum.push(numberArray[i])
+              }else{
+                alert("不能有重复的数字");
+                return false;
+              }
+            }
+
+            var arrayString = tempNum.join("#")+"_"+numberArray[numberArray.length-1];
+
+            this.hadAddNum.push(arrayString)
+          },
+          deleteArrayNum:function (e) {
+              var index = e.target.getAttribute("indexNum");
+              this.hadAddNum.splice(index,1);
           }
       }
     }
@@ -46,6 +63,7 @@
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
+    margin-bottom: 10px;
   }
   .delete-line{
     cursor: pointer;
