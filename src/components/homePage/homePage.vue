@@ -11,12 +11,15 @@
 </template>
 
 <script>
+
     import homeHead from "../common/homeHead.vue"
     import doubleColourBall from "./doubleColourBall"
     import buyControl from "./buyControl"
+    import state from "state"
 
     export default {
         name: "homePage",
+        state,
         components:{homeHead,doubleColourBall,buyControl}
     }
 
