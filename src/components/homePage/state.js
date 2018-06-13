@@ -3,23 +3,16 @@ import Vuex from 'vuex';
 
 vue.use(vuex);
 
-const store = new Vuex.Store({
-  state: {
-    name: 'weish',
-    age: 22
-  },
-  getters: {
+const states = {
+  dialogType:false,
+  dialogText:""
+};
 
-  },
-  mutations: {
+const mutations = {
 
-  },
-  actions: {
+}
 
-  },
-  modules: {
-
-  }
+export default new Vuex.store({
+    states,
+    mutations
 });
-
-export default store;
