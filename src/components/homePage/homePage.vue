@@ -15,11 +15,11 @@
     import homeHead from "../common/homeHead.vue"
     import doubleColourBall from "./doubleColourBall"
     import buyControl from "./buyControl"
-    import state from "state"
+    import store from "./store"
 
     export default {
         name: "homePage",
-        state,
+        store,
         components:{homeHead,doubleColourBall,buyControl}
     }
 
