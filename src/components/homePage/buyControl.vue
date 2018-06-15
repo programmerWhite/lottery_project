@@ -39,7 +39,7 @@
     import dialogComponent from "../common/dialogComponent"
 
     export default {
-        name: "buyControl",
+      name: "buyControl",
       components:{addLottery,lotteryCode,dialogComponent},
       data(){
           return{
@@ -73,7 +73,21 @@
               this.hadAddNum.splice(index,1);
           },
           agreeJoin:function () {
-            alert("你还没有登录哦？")
+
+            /*调用 dialog 弹窗*/
+            this.$store.dispatch("dialogParameter",{
+              type:"confirm",
+              changeText:"确定参与合买项目?",
+              button1:"确认",
+              button2:"取消",
+              button1CallBack:function () {
+                // alert("click 确认");
+              },
+              button2CallBack:function () {
+                // alert("click 取消");
+              }
+            });
+
           }
       }
     }
