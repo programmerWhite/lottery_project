@@ -7,6 +7,7 @@
     <div class="buy-together-center-div">
       <buy-control></buy-control>
     </div>
+    <dialog-component></dialog-component>
   </div>
 </template>
 
@@ -15,12 +16,13 @@
     import homeHead from "../common/homeHead.vue"
     import doubleColourBall from "./doubleColourBall"
     import buyControl from "./buyControl"
+    import dialogComponent from "../common/dialogComponent.vue"
     import store from "./store"
 
     export default {
         name: "homePage",
         store,
-        components:{homeHead,doubleColourBall,buyControl}
+        components:{homeHead,doubleColourBall,buyControl,dialogComponent}
     }
 
 </script>
