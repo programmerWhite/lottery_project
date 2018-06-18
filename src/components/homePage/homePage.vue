@@ -2,7 +2,10 @@
   <div class="home-page-all">
     <home-head></home-head>
     <div class="lottery-current-div">
-      <double-colour-ball></double-colour-ball>
+      <double-colour-ball :lotteryData="doubleColorData"></double-colour-ball>
+    </div>
+    <div class="lottery-current-div">
+      <double-colour-ball :lotteryData="greatLottoData"></double-colour-ball>
     </div>
     <div class="buy-together-center-div">
       <buy-control></buy-control>
@@ -18,11 +21,22 @@
     import buyControl from "./buyControl"
     import dialogComponent from "../common/dialogComponent.vue"
     import store from "./store"
+    import  "require"
 
     export default {
         name: "homePage",
         store,
-        components:{homeHead,doubleColourBall,buyControl,dialogComponent}
+        components:{homeHead,doubleColourBall,buyControl,dialogComponent},
+        data () {
+          return {
+            doubleColorData:{
+              imgLabel:require("@/assets/doubleColor.png"),
+            },
+            greatLottoData:{
+              imgLabel:require("@/assets/greatLotto.png"),
+            }
+          };
+        }
     }
 
 </script>

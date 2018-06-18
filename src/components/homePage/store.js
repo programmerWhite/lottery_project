@@ -36,7 +36,7 @@ const dialogModules = {
       state.show = state.show?false:true;
     },
     closeDialog:function (state) {
-      state.show = false;
+        state.show = false;
     },
     runButton1Cback:function (state) {
       if(state.button1CallBack){

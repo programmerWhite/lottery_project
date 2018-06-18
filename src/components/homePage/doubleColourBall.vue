@@ -1,7 +1,7 @@
 <template>
     <div class="double-color-ball-div">
       <div class="dcb-img-div">
-        <img src="../../assets/doubleColorBall.png" />
+        <img :src="imgLabel" />
       </div>
       <div class="dcb-next-time-div">
         <div class="dcb-next-time-text">第 <span>{{nextTimeNum}}</span> 期</div>
@@ -37,6 +37,7 @@
 
     export default {
         name: "doubleColourBall",
+      props:["lotteryData"],
       components:{
         countDown,
         lotteryCode
@@ -47,8 +48,16 @@
             lastTimeNum:18071168,
             lastAllBuyMoney:"100",
             peopleAllNum:25,
-            moneyAllWin:123700
+            moneyAllWin:123700,
           }
+      },
+      created:function () {
+        console.log(this.lotteryData.imgLabel)
+      },
+      computed:{
+        imgLabel:function() {
+          return this.lotteryData.imgLabel;
+        }
       }
     }
 </script>

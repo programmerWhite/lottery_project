@@ -1,22 +1,16 @@
 <template>
   <div class="dialog-container-div" v-show="dialogShow">
     <div class="dialog-one-div" :class="dialogShow?'dialog-show-style':'dialog-hide-style'" v-if="dialogType=='alert'">
-      <div class="dialog-text">{{dialogText}}</div>
+      <div class="dialog-text" v-html="dialogText"></div>
       <div class="dialog-button-container-div">
         <div class="dialog-button button-style" @click="buttonClick">{{dialogButton1}}</div>
       </div>
     </div>
     <div class="dialog-one-div" :class="dialogShow?'dialog-show-style':'dialog-hide-style'" v-else-if="dialogType=='confirm'">
-      <div class="dialog-text">{{dialogText}}</div>
+      <div class="dialog-text" v-html="dialogText"></div>
       <div class="dialog-button-container-div">
         <div class="dialog-button button-style" @click="buttonClick">{{dialogButton1}}</div>
         <div class="dialog-button2 button-style" @click="button2Click">{{dialogButton2}}</div>
-      </div>
-    </div>
-    <div class="dialog-one-div" :class="dialogShow?'dialog-show-style':'dialog-hide-style'" v-else-if="dialogType=='text'">
-      <div class="dialog-text">{{dialogText}}</div>
-      <div class="dialog-button-container-div">
-        <div class="dialog-button button-style" @click="buttonClick">{{dialogButton1}}</div>
       </div>
     </div>
   </div>

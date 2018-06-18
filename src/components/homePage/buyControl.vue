@@ -77,7 +77,7 @@
             /*调用 dialog 弹窗*/
             this.$store.dispatch("dialogParameter",{
               type:"confirm",
-              changeText:"确定参与合买项目?",
+              changeText:"确定参与合买项目?<br/><br/>和买金额:"+this.bugNumber+"元",
               button1:"确认",
               button2:"取消",
               button1CallBack:function () {
