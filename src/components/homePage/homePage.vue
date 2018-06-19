@@ -1,12 +1,10 @@
 <template>
   <div class="home-page-all">
     <home-head></home-head>
-    <div class="lottery-current-div">
-      <double-colour-ball :lotteryData="doubleColorData"></double-colour-ball>
-    </div>
-    <div class="lottery-current-div">
-      <double-colour-ball :lotteryData="greatLottoData"></double-colour-ball>
-    </div>
+
+    <menu-lottery-name :menuData="lotteryName"></menu-lottery-name>
+    <double-colour-ball :lotteryData="doubleColorData"></double-colour-ball>
+    <double-colour-ball :lotteryData="greatLottoData"></double-colour-ball>
     <div class="buy-together-center-div">
       <buy-control></buy-control>
     </div>
@@ -20,23 +18,54 @@
     import doubleColourBall from "./doubleColourBall"
     import buyControl from "./buyControl"
     import dialogComponent from "../common/dialogComponent.vue"
+    import menuLotteryName from "../common/menuLotteryName.vue"
     import store from "./store"
-    import  "require"
 
     export default {
         name: "homePage",
         store,
-        components:{homeHead,doubleColourBall,buyControl,dialogComponent},
+        components:{homeHead,doubleColourBall,buyControl,dialogComponent,menuLotteryName},
         data () {
           return {
             doubleColorData:{
-              imgLabel:require("@/assets/doubleColor.png"),
+              dataType:"doubleColorBall",
+              lotteryId:1,
+              imgLabel:"assets/doubleColorBall.png",
+              nextTimeNum:18071169,
+              lastTimeNum:18071168,
+              lastAllBuyMoney:"100",
+              peopleAllNum:25,
+              moneyAllWin:123700,
+              lastTimeLotteryBall:"3#7#8#10#12#23_3",
+              countTime:"5#23#1"
             },
             greatLottoData:{
-              imgLabel:require("@/assets/greatLotto.png"),
-            }
+              lotteryId:2,
+              dataType:"greatLotteryBall",
+              imgLabel:"assets/greatLotto.png",
+              nextTimeNum:18071167,
+              lastTimeNum:18071166,
+              lastAllBuyMoney:"88",
+              peopleAllNum:12,
+              moneyAllWin:3780,
+              lastTimeLotteryBall:"1#4#6#14#28_1#12",
+              countTime:"3#13#5"
+            },
+            lotteryName:[
+              {
+                  name:"双色球",
+                  id:"1"
+              },
+              {
+                  name:"大乐透",
+                  id:"2"
+              }
+            ]
           };
-        }
+        },
+      created:function () {
+        this.$store.state.other.lotteryBallId = this.doubleColorData.lotteryId;
+      }
     }
 
 </script>

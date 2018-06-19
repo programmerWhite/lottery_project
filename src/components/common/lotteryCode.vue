@@ -1,7 +1,7 @@
 <template>
   <div class="dcb-number-container">
     <div class="ball-red-div" v-for="num in redCodeNum">{{num | addZero}}</div>
-    <div class="ball-blue-div">{{blueCodeNum | addZero}}</div>
+    <div class="ball-blue-div" v-for="num in blueCodeNum">{{num | addZero}}</div>
   </div>
 </template>
 
@@ -20,7 +20,7 @@
           var redBlue = this.lotteryCode.split("_");
 
           this.redCodeNum = redBlue[0].split("#");
-          this.blueCodeNum = redBlue[1];
+          this.blueCodeNum = redBlue[1].split("#");
         }
       },
       created:function(){

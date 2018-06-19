@@ -84,8 +84,20 @@ const dialogModules = {
   }
 };
 
+const other = {
+  state:{
+    lotteryBallId:null
+  },
+  mutations:{
+    changeLotteryId:function (state,lotteryId) {
+      state.lotteryBallId = lotteryId;
+    }
+  }
+}
+
 export default new Vuex.Store({
     modules:{
-      dialog:dialogModules
+      dialog:dialogModules,
+      other:other
     }
 });
