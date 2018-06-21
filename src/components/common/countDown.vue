@@ -8,7 +8,7 @@
 
 <script>
     export default {
-        name: "Countdown",
+        name: "countdown",
       props:["countTime"],
       data(){
           return{
