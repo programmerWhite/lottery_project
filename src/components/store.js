@@ -86,11 +86,15 @@ const dialogModules = {
 
 const other = {
   state:{
-    lotteryBallId:null
+    lotteryBallId:null,
+    personalCenterComponentUrl:""
   },
   mutations:{
     changeLotteryId:function (state,lotteryId) {
       state.lotteryBallId = lotteryId;
+    },
+    changePersonalCenterComponentUrl:function (state,componentUrl) {
+      state.personalCenterComponentUrl = componentUrl;
     }
   }
 }

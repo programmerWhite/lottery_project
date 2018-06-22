@@ -19,7 +19,7 @@
     import buyControl from "./buyControl"
     import dialogComponent from "../common/dialogComponent.vue"
     import menuLotteryName from "../common/menuLotteryName.vue"
-    import store from "./store"
+    import store from "../store"
 
     export default {
         name: "homePage",
