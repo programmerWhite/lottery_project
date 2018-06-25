@@ -40,7 +40,7 @@
           if(inputType == "new"){
 
             if(!this.regex(emailString)){
-              this.newEmailNotice = "请检查邮件格式";
+              this.newEmailNotice = "请检查邮箱地址格式";
             }else{
               this.newEmailNotice = "";
             }
@@ -48,7 +48,7 @@
           }else if(inputType == "confirm"){
 
             if(this.newEmail != this.confirmEmail){
-              this.confirmEmailNotice = "两次邮箱内容不一样";
+              this.confirmEmailNotice = "两次邮箱地址不一样";
             }else
               this.confirmEmailNotice = "";
             }
@@ -65,12 +65,15 @@
 
           if(this.regex(this.newEmail) && this.newEmail == this.confirmEmail){
             /*调用 dialog 弹窗*/
+            var This = this;
             this.$store.dispatch("dialogParameter",{
               type:"alert",
               changeText:"邮箱修改成功",
               button1:"确认",
               button1CallBack:function () {
-                // alert("click 确认");
+                This.$parent.hideEmailInput();
+                This.newEmailNotice = "";
+                This.confirmEmailNotice = "";
               },
               button2CallBack:function () {
                 // alert("click 取消");
