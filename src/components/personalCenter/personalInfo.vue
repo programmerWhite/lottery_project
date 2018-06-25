@@ -6,23 +6,26 @@
       </div>
       <div class="user-name-div">
         <span class="white-color-label">{{userInfo.userName}}</span>
-        <span class="white-color-label font-size-14 margin-top-10">{{userInfo.emailText}}<span class="change-email-button">修改</span></span>
+        <span class="white-color-label font-size-14 margin-top-10">{{userInfo.emailText}}<span class="change-email-button" @click="showEmailInput">修改</span></span>
         <span class="red-color-label font-size-14 margin-top-10">状态：{{userInfo.userLevel}}</span>
       </div>
     </div>
     <div class="change-email-div" v-show="emailShow">
       <change-email></change-email>
     </div>
+    <dialog-component></dialog-component>
   </div>
 </template>
 
 <script>
   import changeEmail from "./changeEmail"
+  import dialogComponent from "../common/dialogComponent.vue"
 
     export default {
         name: "personal-info",
       components:{
-        changeEmail
+        changeEmail,
+        dialogComponent
       },
       data(){
           return{
@@ -40,6 +43,14 @@
             emailText:"641812518@qq.com"
           }
         },500);
+      },
+      methods:{
+        showEmailInput:function () {
+          this.emailShow = true;
+        },
+        hideEmailInput:function () {
+          this.emailShow = false;
+        },
       }
     }
 </script>
