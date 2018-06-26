@@ -104,14 +104,30 @@
                 if(newValue <=33 && newValue >= 1 || newValue==""){
                   return newValue;
                 }else{
-                  alert("红球选择区间是1-33");
+                  /*调用 dialog 弹窗*/
+                  this.$store.dispatch("dialogParameter",{
+                    type:"alert",
+                    changeText:"红球选择区间是1-33。",
+                    button1:"确认",
+                    button1CallBack:function () {
+                      // alert("click 确认");
+                    }
+                  });
                   return "";
                 }
               }else if(type == "blue"){
                 if(newValue <=16 && newValue >= 1 || newValue==""){
                   return newValue;
                 }else{
-                  alert("篮球选择区间是1-16");
+                  /*调用 dialog 弹窗*/
+                  this.$store.dispatch("dialogParameter",{
+                    type:"alert",
+                    changeText:"篮球选择区间是1-16。",
+                    button1:"确认",
+                    button1CallBack:function () {
+                      // alert("click 确认");
+                    }
+                  });
                   return "";
                 }
               }

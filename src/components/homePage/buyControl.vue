@@ -55,7 +55,15 @@
               if(tempNum.indexOf(numberArray[i]) == -1){
                 tempNum.push(numberArray[i])
               }else{
-                alert("不能有重复的数字");
+                /*调用 dialog 弹窗*/
+                this.$store.dispatch("dialogParameter",{
+                  type:"alert",
+                  changeText:"不能有重复的数字。",
+                  button1:"确认",
+                  button1CallBack:function () {
+                    // alert("click 确认");
+                  }
+                });
                 return false;
               }
             }
@@ -63,7 +71,15 @@
             var arrayString = tempNum.join("#")+"_"+numberArray[numberArray.length-1];
 
             if(this.hadAddNum.length == 5){
-              alert("每次最多添加五组数据");
+              /*调用 dialog 弹窗*/
+              this.$store.dispatch("dialogParameter",{
+                type:"alert",
+                changeText:"每次最多添加五组数据。",
+                button1:"确认",
+                button1CallBack:function () {
+                  // alert("click 确认");
+                }
+              });
               return false;
             }
             this.hadAddNum.push(arrayString)
