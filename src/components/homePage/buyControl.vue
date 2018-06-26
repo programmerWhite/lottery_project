@@ -26,7 +26,7 @@
           <div class="together-label-text">合买金额：</div>
           <input class="together-input-div" type="text" v-model="bugNumber" placeholder="输入买入金额"/>
           <div class="confirm-label-text">确认买入金额：</div>
-          <div class="confirm-money-number">{{bugNumber}} 元</div>
+          <div class="confirm-money-number">{{bugNumber?bugNumber:0}} 元</div>
           <button class="confirm-buy-button" @click="agreeJoin">确认参与</button>
         </div>
       </div>
@@ -73,20 +73,32 @@
               this.hadAddNum.splice(index,1);
           },
           agreeJoin:function () {
+            if(parseInt(this.bugNumber) > 0){
+              /*调用 dialog 弹窗*/
+              this.$store.dispatch("dialogParameter",{
+                type:"confirm",
+                changeText:"确定参与合买项目?<br/><br/>合买金额:"+this.bugNumber+"元",
+                button1:"确认",
+                button2:"取消",
+                button1CallBack:function () {
+                  // alert("click 确认");
+                },
+                button2CallBack:function () {
+                  // alert("click 取消");
+                }
+              });
+            }else{
+              /*调用 dialog 弹窗*/
+              this.$store.dispatch("dialogParameter",{
+                type:"alert",
+                changeText:"请确认你的购买金额。",
+                button1:"确认",
+                button1CallBack:function () {
+                  // alert("click 确认");
+                }
+              });
+            }
 
-            /*调用 dialog 弹窗*/
-            this.$store.dispatch("dialogParameter",{
-              type:"confirm",
-              changeText:"确定参与合买项目?<br/><br/>和买金额:"+this.bugNumber+"元",
-              button1:"确认",
-              button2:"取消",
-              button1CallBack:function () {
-                // alert("click 确认");
-              },
-              button2CallBack:function () {
-                // alert("click 取消");
-              }
-            });
 
           }
       }

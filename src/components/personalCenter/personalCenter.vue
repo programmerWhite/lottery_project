@@ -11,6 +11,7 @@
         </keep-alive>
       </div>
     </div>
+    <dialog-component></dialog-component>
   </div>
 </template>
 

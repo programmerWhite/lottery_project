@@ -72,11 +72,8 @@
               button1:"确认",
               button1CallBack:function () {
                 This.$parent.hideEmailInput();
-                This.newEmailNotice = "";
-                This.confirmEmailNotice = "";
-              },
-              button2CallBack:function () {
-                // alert("click 取消");
+                This.newEmail = "";
+                This.confirmEmail = "";
               }
             });
           }else{

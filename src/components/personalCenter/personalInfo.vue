@@ -13,19 +13,16 @@
     <div class="change-email-div" v-show="emailShow">
       <change-email></change-email>
     </div>
-    <dialog-component></dialog-component>
   </div>
 </template>
 
 <script>
   import changeEmail from "./changeEmail"
-  import dialogComponent from "../common/dialogComponent.vue"
 
     export default {
         name: "personal-info",
       components:{
-        changeEmail,
-        dialogComponent
+        changeEmail
       },
       data(){
           return{

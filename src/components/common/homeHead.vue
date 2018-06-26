@@ -9,7 +9,7 @@
             <li><router-link to="/">大厅</router-link></li>
             <li><router-link to="/personalCenter">个人中心</router-link></li>
             <li><router-link to="/noticeCenter">公告中心</router-link></li>
-            <li>登录</li>
+            <li><router-link to="/login">登录</router-link></li>
             <li>注册</li>
           </ul>
         </div>

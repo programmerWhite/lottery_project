@@ -60,7 +60,7 @@
               lotteryTimes:"201817023",
               lotteryStatus:"分摊奖金 0 元"
             },{
-              date:"2018-07-3",
+              date:"2018-07-03",
               lotteryName:"大乐透",
               lotteryCode:"3#14#16#19#24_3#43",
               buyMoney:"10",
@@ -81,7 +81,7 @@
     width: 100%;
     padding: 10px 20px;
     box-sizing: border-box;
-    border-bottom: 1px solid #cccccc;
+    font-size: 18px;
   }
   .buy-record-empty-div{
     text-align: center;
