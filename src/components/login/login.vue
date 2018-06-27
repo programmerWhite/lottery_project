@@ -13,7 +13,7 @@
       <div class="login-input-line">
         <div class="login-input-div">
           <img src="./img/user.png">
-          <input type="text" v-model="passwordText" class="input-style" placeholder="密码"/>
+          <input type="password" v-model="passwordText" class="input-style" placeholder="密码"/>
         </div>
       </div>
       <div class="notice-div" v-text="noticeText"></div>
@@ -25,15 +25,19 @@
       </div>
       <div class="login-button-div">登录</div>
     </div>
+    <dialog-component></dialog-component>
   </div>
 </template>
 
 <script>
   import homeHead from "../common/homeHead"
+  import dialogComponent from "../common/dialogComponent.vue"
+  import store from "../store"
 
     export default {
         name: "login",
-      components:{homeHead},
+      components:{homeHead,dialogComponent},
+      store,
       data(){
           return {
             noticeText:"",

@@ -9,6 +9,24 @@
             <span  class="font-size-14 get-money" @click="getMoney"> 提现 </span>
           </div>
         </div>
+        <div class="set-pay-money">
+          <div class="set-pay-line-div">
+            <span @click="payDivShow" class="cursor-pointer">设置支付密码</span>
+          </div>
+          <div v-show="payShowHide" >
+            <div class="set-pay-line-div">
+              <input type="text" class="email-code-input" placeholder="验证码"/>
+              <button class="get-email-code"  @click="getAuthorCode">获取验证码</button>
+            </div>
+            <div class="set-pay-line-div">
+              <input type="text" class="pay-password-input" placeholder="支付密码"/>
+
+            </div>
+            <div class="set-pay-line-div">
+              <button class="change-pay-password-button">修改支付密码</button>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div class="wallet-content-div">
@@ -27,7 +45,8 @@
         name: "wallet",
       data(){
           return {
-              walletData:{}
+              walletData:{},
+            payShowHide:false
           }
       },
       mounted:function () {
@@ -84,12 +103,65 @@
 
             }
           });
+        },
+        payDivShow:function () {
+          this.payShowHide = this.payShowHide?false:true;
+        },
+        getAuthorCode:function () {
+          this.$store.dispatch("dialogParameter",{
+            type:"alert",
+            changeText:"验证码发送成功",
+            button1:"确认",
+            button1CallBack:function () {
+
+            }
+          });
         }
       }
     }
 </script>
 
 <style scoped>
+  .set-pay-line-div{
+    font-size: 14px;
+    line-height: 30px;
+    margin-bottom: 10px;
+  }
+  .cursor-pointer{
+    cursor: pointer;
+  }
+  .get-email-code,
+  .change-pay-password-button{
+    height: 26px;
+    text-align: center;
+    background-color: #cd181f;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .email-code-input{
+    width: 100px;
+    height: 26px;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    border: 1px solid #cccccc;
+    background-color: #2c2c2c;
+    color: white;
+    font-size: 14px;
+  }
+  .pay-password-input{
+    width: 190px;
+    height: 26px;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 6px;
+    border: 1px solid #cccccc;
+    background-color: #2c2c2c;
+    color: white;
+    font-size: 14px;
+  }
   .wallet-div{
     padding:10px 20px;
     box-sizing: border-box;

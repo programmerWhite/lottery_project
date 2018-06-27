@@ -1,13 +1,17 @@
 <template>
-  <home-head></home-head>
+  <div>
+    <home-head></home-head>
+    <development></development>
+  </div>
 </template>
 
 <script>
   import homeHead from "../common/homeHead.vue"
+  import development from "../common/development"
 
   export default {
       name:"noticeCenter",
-      components:{homeHead}
+      components:{homeHead,development}
   }
 </script>
 

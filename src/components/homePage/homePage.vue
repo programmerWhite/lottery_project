@@ -17,8 +17,8 @@
     import homeHead from "../common/homeHead.vue"
     import doubleColourBall from "./doubleColourBall"
     import buyControl from "./buyControl"
-    import dialogComponent from "../common/dialogComponent.vue"
     import menuLotteryName from "../common/menuLotteryName.vue"
+    import dialogComponent from "../common/dialogComponent.vue"
     import store from "../store"
 
     export default {
