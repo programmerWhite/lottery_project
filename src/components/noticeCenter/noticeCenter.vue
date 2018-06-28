@@ -3,46 +3,64 @@
     <home-head></home-head>
     <development></development>
     <div style="color:white;">
-
+      <table-components :propsTableData="tableData"></table-components>
     </div>
-    <button @click="getNum">ok</button>
   </div>
 </template>
 
 <script>
   import homeHead from "../common/homeHead.vue"
   import development from "../common/development"
+  import tableComponents from "./tableComponents"
 
   export default {
       name:"noticeCenter",
-      components:{homeHead,development},
+      components:{homeHead,development,tableComponents},
       data(){
-        return[
-          {
-            hang:{
-              lie:[
+        return{
+            tableData:[
                 {
-                  name:"第一行 第一列",
-                },{
-                  name:"第一行 第二列",
-                },{
-                  name:"第一行 第三列",
-                }
-              ]
-            },
-            hang:{
-              lie:[
+                  lie:[
+                    {
+                      name:"第一行 第一列",
+
+                    },{
+                      name:"第一行 第二列",
+                    },{
+                      hang:[
+                        {
+                          lie:[
+                            {
+                              name:"第二行 第一列",
+                            },{
+                              name:"第二行 第二列",
+                            }
+                          ]
+                        },
+                        {
+                          name: "1-2"
+                        },{
+                          name: "1-3"
+                        }
+                      ]
+                    },{
+                      name:"第一行 第二列",
+                    }
+                  ]
+                },
                 {
-                  name:"第二行 第一列",
-                },{
-                  name:"第二行 第二列",
-                },{
-                  name:"第二行 第三列",
+                  lie:[
+                    {
+                      name:"第二行 第一列",
+                    },{
+                      name:"第二行 第二列",
+                    },{
+                      name:"第二行 第三列",
+                    }
+                  ]
                 }
-              ]
-            }
-          }
-        ]
+            ]
+        }
       },
     methods:{
       blurDiv:function (e) {
