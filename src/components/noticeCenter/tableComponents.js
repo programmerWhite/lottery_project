@@ -21,7 +21,7 @@ Vue.component("cols-components",{
     }
   },
   created:function () {
-    this.colsNum = this.colsLevel+1;
+    this.colsNum = this.colsLevel;
     this.rowsNum = this.rowsLevel+1;
   },
   methods:{
@@ -51,7 +51,7 @@ Vue.component("rows-components",{
   },
   created:function () {
     this.colsNum = this.colsLevel+1;
-    this.rowsNum = this.rowsLevel+1;
+    this.rowsNum = this.rowsLevel;
   }
 });
 
