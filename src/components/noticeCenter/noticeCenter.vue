@@ -2,7 +2,7 @@
   <div>
     <home-head></home-head>
     <development></development>
-    <div style="color:white;">
+    <div class="table-div">
       <table-components :propsTableData="tableData"></table-components>
     </div>
   </div>
@@ -31,7 +31,17 @@
                         {
                           lie:[
                             {
-                              name:"第二行 第一列",
+                              hang:[
+                                {
+                                  name:13123
+                                },
+                                {
+                                  name:3132
+                                },
+                                {
+                                  name:131321
+                                }
+                              ]
                             },{
                               name:"第二行 第二列",
                             }
@@ -86,5 +96,9 @@
     background-color: white;
     color:red;
 
+  }
+  .table-div{
+    width: 1024px;
+    margin: 0 auto;
   }
 </style>
